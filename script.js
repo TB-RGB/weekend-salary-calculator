@@ -1,6 +1,7 @@
 let totalSalary = 0;
 let total = document.getElementById("total");
-total.innerText = `$${totalSalary}`;
+let output = document.getElementById("outTotal");
+output.innerText = `$${totalSalary}`;
 
 /**
  * Checks if the monthly budget has been exceeded and if so, applys the over-budget class for css styling
@@ -58,7 +59,7 @@ function handleSubmit(event) {
   </tr>`;
   //adjusts the monthly salary budget counter
   totalSalary += (Number(yearSalary) / 12);
-  total.innerText = `$${totalSalary}`;
+  output.innerHTML = `$` + totalSalary;
   //clears fields
   allInputs.forEach((singleInput) => (singleInput.value = ""));
 
@@ -82,7 +83,7 @@ function runDelete(event) {
   let removedSal = targSal.innerText;
   // variable used to decrease monthly budget counter
   totalSalary -= (Number(removedSal) / 12);
-  total.innerText = `$${totalSalary}`;
+  output.innerHTML = `$${totalSalary}`;
   //removes the employee from table
   toDelete.remove();
   //checks if monthly budget has gone over limit
