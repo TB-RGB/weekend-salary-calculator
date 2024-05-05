@@ -76,10 +76,7 @@ td.delete {
   text-align: center;
 }
 
-/* #total{
-    color: wheat
-} */
-
 .over-budget {
     color: red;
+    text-decoration: line-through;
 }

@@ -29,7 +29,7 @@ function handleSubmit(event) {
     <td class='delete'><button onClick='runDelete(event)'>❌</button></td>
   </tr>`;
 
-  totalSalary += Number(yearSalary);
+  totalSalary += (Number(yearSalary)/12);
   total.innerText = `$${totalSalary}`;
 
   allInputs.forEach((singleInput) => (singleInput.value = ""));
@@ -46,7 +46,7 @@ function runDelete(event) {
 
   let removedSal = targSal.innerText;
 
-  totalSalary -= Number(removedSal);
+  totalSalary -= (Number(removedSal)/12);
   total.innerText = `$${totalSalary}`;
 
   toDelete.remove();
@@ -61,4 +61,3 @@ function checkBudget(){
     }
 }
 
-// checkBudget()
