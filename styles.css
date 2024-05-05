@@ -27,7 +27,7 @@ main {
   margin: auto;
 }
 footer {
-  height: 10em;
+  height: 12em;
   background-color: #acacac;
   text-align: center;
 }
@@ -89,6 +89,3 @@ h2 {
     text-align: center;
 }
 
-h3 {
-    text-align: center;
-}
