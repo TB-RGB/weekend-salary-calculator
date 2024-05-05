@@ -1,11 +1,12 @@
-let sum = 0
-let total = document.getElementById('total')
-total.innerText = `$${sum}`
-
+let sum = 0;
+let total = document.getElementById("total");
+total.innerText = `$${sum}`;
 
 function handleSubmit(event) {
   console.log("inside of submit()");
   event.preventDefault();
+
+  let allInputs = document.querySelectorAll('input')
 
   let firstName = document.getElementById("firstName").value;
   let lastName = document.getElementById("lastName").value;
@@ -18,7 +19,7 @@ function handleSubmit(event) {
         Title: ${jobTitle}
         Salary: ${yearSalary}`);
 
-  let table = document.getElementById('tBody')
+  let table = document.getElementById("tBody");
   table.innerHTML += `
   <tr>
     <td>${firstName} ${lastName}</td>
@@ -26,23 +27,25 @@ function handleSubmit(event) {
     <td>${jobTitle}</td>
     <td id='sumSal'>${Number(yearSalary)}</td>
     <td class='delete'><button onClick='runDelete(event)'>❌</button></td>
-  </tr>`
+  </tr>`;
 
-  sum += Number(yearSalary)
-  total.innerText = `$${sum}`
+  sum += Number(yearSalary);
+  total.innerText = `$${sum}`;
+
+  allInputs.forEach(singleInput => singleInput.value = '')
 }
 
-function runDelete(event){
-    console.log('testing delete')
+function runDelete(event) {
+  console.log("testing delete");
 
-    let toDelete = event.target.parentElement.parentElement
-    let targSal = document.getElementById('sumSal')
+  let toDelete = event.target.parentElement.parentElement;
+  let targSal = document.getElementById("sumSal");
 
-    console.log(targSal)
-    let removedSal = targSal.innerText
+  console.log(targSal);
+  let removedSal = targSal.innerText;
 
-    sum -= Number(removedSal)
-    total.innerText = `$${sum}`
+  sum -= Number(removedSal);
+  total.innerText = `$${sum}`;
 
-    toDelete.remove()
+  toDelete.remove();
 }
