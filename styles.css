@@ -27,7 +27,7 @@ main {
   margin: auto;
 }
 footer {
-  height: 12em;
+  height: 10em;
   background-color: #acacac;
   text-align: center;
 }
@@ -76,7 +76,19 @@ td.delete {
   text-align: center;
 }
 
-.over-budget {
+footer.title{
+    font-size: larger;
+}
+
+.over-budget, div{
     color: red;
     text-decoration: line-through;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
 }
