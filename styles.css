@@ -1,0 +1,33 @@
+/* GLOBAL TYPOGRAPHY */
+body {
+    background-color: #dcdcdc;
+    font-family: 'Roboto', sans-serif;
+    color: #313131;
+    font-size: 1.25em;
+  }
+  
+
+/* TABLE */
+table {
+    width: 100%;
+    text-align: left;
+  }
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    height: 2.15em;
+  }
+  th, td {
+    padding: .5em;
+    min-width: 3.5em;
+  }
+  thead {
+    background: #7a7a7a;
+    color: #fcfcfc;
+  }
+  tbody tr:nth-child(odd){ 
+    background: #fcfcfc;
+  }
+  tbody tr:nth-child(even){
+    background: #dcdcdc;
+  }
