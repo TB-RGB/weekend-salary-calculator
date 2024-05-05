@@ -1,17 +1,32 @@
-function handleSubmit(event){
-    console.log('inside of submit()')
-    event.preventDefault()
+function handleSubmit(event) {
+  console.log("inside of submit()");
+  event.preventDefault();
 
-    let firstName = document.getElementById('firstName').value
-    let lastName = document.getElementById('lastName').value
-    let idNumber = document.getElementById('idNumber').value
-    let jobTitle = document.getElementById('jobTitle').value
-    let yearSalary = document.getElementById('yearSalary').value
+  let firstName = document.getElementById("firstName").value;
+  let lastName = document.getElementById("lastName").value;
+  let idNumber = document.getElementById("idNumber").value;
+  let jobTitle = document.getElementById("jobTitle").value;
+  let yearSalary = document.getElementById("yearSalary").value;
 
-    console.log(`Name: ${firstName} ${lastName}
+  console.log(`Name: ${firstName} ${lastName}
         ID #: ${idNumber}
         Title: ${jobTitle}
-        Salary: ${yearSalary}`)
+        Salary: ${yearSalary}`);
 
+  let table = document.getElementById('tBody')
+  table.innerHTML += `
+  <tr>
+    <td>${firstName} ${lastName}</td>
+    <td>${idNumber}</td>
+    <td>${jobTitle}</td>
+    <td>${Number(yearSalary)}</td>
+    <td class='delete'><button onClick='runDelete(event)'>❌</button></td>
+  </tr>`
+}
 
+function runDelete(event){
+    console.log('testing delete')
+
+    let toDelete = event.target.parentElement.parentElement
+    toDelete.remove()
 }
