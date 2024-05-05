@@ -76,10 +76,10 @@ td.delete {
   text-align: center;
 }
 
-footer.totalSum {
-    text-align: center;
-}
+/* #total{
+    color: wheat
+} */
 
-footer.over-budget {
+.over-budget {
     color: red;
 }

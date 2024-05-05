@@ -1,6 +1,6 @@
-let sum = 0;
+let totalSalary = 0;
 let total = document.getElementById("total");
-total.innerText = `$${sum}`;
+total.innerText = `$${totalSalary}`;
 
 function handleSubmit(event) {
   console.log("inside of submit()");
@@ -29,10 +29,11 @@ function handleSubmit(event) {
     <td class='delete'><button onClick='runDelete(event)'>❌</button></td>
   </tr>`;
 
-  sum += Number(yearSalary);
-  total.innerText = `$${sum}`;
+  totalSalary += Number(yearSalary);
+  total.innerText = `$${totalSalary}`;
 
   allInputs.forEach((singleInput) => (singleInput.value = ""));
+  checkBudget();
 }
 
 function runDelete(event) {
@@ -40,17 +41,24 @@ function runDelete(event) {
 
   let toDelete = event.target.parentElement.parentElement;
   let children = toDelete.childNodes;
-  let targSal = children[7]
+  let targSal = children[7];
   console.log(children[7]);
 
-  //   console.log('toDelete', toDelete)
-  //   console.log('targSal dataset' ,targSal);
-    let removedSal = targSal.innerText;
+  let removedSal = targSal.innerText;
 
-    sum -= Number(removedSal);
-    total.innerText = `$${sum}`;
+  totalSalary -= Number(removedSal);
+  total.innerText = `$${totalSalary}`;
 
-    toDelete.remove();
+  toDelete.remove();
+  checkBudget();
 }
 
-// total.classList.toggle('over-budget', sum > 20000)
+function checkBudget(){
+    if (totalSalary > 20000){
+        total.classList.add('over-budget')
+    } else if (totalSalary <= 20000){
+        total.classList.remove('over-budget')
+    }
+}
+
+// checkBudget()
