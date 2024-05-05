@@ -24,7 +24,7 @@ function handleSubmit(event) {
     <td>${firstName} ${lastName}</td>
     <td>${idNumber}</td>
     <td>${jobTitle}</td>
-    <td>${Number(yearSalary)}</td>
+    <td id='sumSal'>${Number(yearSalary)}</td>
     <td class='delete'><button onClick='runDelete(event)'>❌</button></td>
   </tr>`
 
@@ -36,5 +36,13 @@ function runDelete(event){
     console.log('testing delete')
 
     let toDelete = event.target.parentElement.parentElement
+    let targSal = document.getElementById('sumSal')
+
+    console.log(targSal)
+    let removedSal = targSal.innerText
+
+    sum -= Number(removedSal)
+    total.innerText = `$${sum}`
+
     toDelete.remove()
 }
