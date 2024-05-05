@@ -2,6 +2,14 @@ let totalSalary = 0;
 let total = document.getElementById("total");
 total.innerText = `$${totalSalary}`;
 
+function checkBudget() {
+  if (totalSalary > 20000) {
+    total.classList.add("over-budget");
+  } else if (totalSalary <= 20000) {
+    total.classList.remove("over-budget");
+  }
+}
+
 function handleSubmit(event) {
   console.log("inside of submit()");
   event.preventDefault();
@@ -19,16 +27,17 @@ function handleSubmit(event) {
         Title: ${jobTitle}
         Salary: ${yearSalary}`);
 
-  for (let char of yearSalary){
-    if (char[0] === '$'){
-        yearSalary = yearSalary.split('')
-        console.log(yearSalary)
-        yearSalary.shift()
-        console.log(yearSalary)
-        yearSalary = yearSalary.join('')
-        console.log(yearSalary)
+  for (let char of yearSalary) {
+    if (char[0] === "$") {
+      yearSalary = yearSalary.split("");
+      console.log(yearSalary);
+      yearSalary.shift();
+      console.log(yearSalary);
+      yearSalary = yearSalary.join("");
+      console.log(yearSalary);
     }
   }
+
   let table = document.getElementById("tBody");
   table.innerHTML += `
   <tr>
@@ -61,12 +70,4 @@ function runDelete(event) {
 
   toDelete.remove();
   checkBudget();
-}
-
-function checkBudget() {
-  if (totalSalary > 20000) {
-    total.classList.add("over-budget");
-  } else if (totalSalary <= 20000) {
-    total.classList.remove("over-budget");
-  }
 }
