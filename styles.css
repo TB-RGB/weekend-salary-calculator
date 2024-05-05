@@ -79,3 +79,7 @@ td.delete {
 footer.totalSum {
     text-align: center;
 }
+
+footer.over-budget {
+    color: red;
+}
