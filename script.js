@@ -19,6 +19,16 @@ function handleSubmit(event) {
         Title: ${jobTitle}
         Salary: ${yearSalary}`);
 
+  for (let char of yearSalary){
+    if (char[0] === '$'){
+        yearSalary = yearSalary.split('')
+        console.log(yearSalary)
+        yearSalary.shift()
+        console.log(yearSalary)
+        yearSalary = yearSalary.join('')
+        console.log(yearSalary)
+    }
+  }
   let table = document.getElementById("tBody");
   table.innerHTML += `
   <tr>
@@ -29,7 +39,7 @@ function handleSubmit(event) {
     <td class='delete'><button onClick='runDelete(event)'>❌</button></td>
   </tr>`;
 
-  totalSalary += (Number(yearSalary)/12);
+  totalSalary += Number(yearSalary) / 12;
   total.innerText = `$${totalSalary}`;
 
   allInputs.forEach((singleInput) => (singleInput.value = ""));
@@ -46,18 +56,17 @@ function runDelete(event) {
 
   let removedSal = targSal.innerText;
 
-  totalSalary -= (Number(removedSal)/12);
+  totalSalary -= Number(removedSal) / 12;
   total.innerText = `$${totalSalary}`;
 
   toDelete.remove();
   checkBudget();
 }
 
-function checkBudget(){
-    if (totalSalary > 20000){
-        total.classList.add('over-budget')
-    } else if (totalSalary <= 20000){
-        total.classList.remove('over-budget')
-    }
+function checkBudget() {
+  if (totalSalary > 20000) {
+    total.classList.add("over-budget");
+  } else if (totalSalary <= 20000) {
+    total.classList.remove("over-budget");
+  }
 }
-
