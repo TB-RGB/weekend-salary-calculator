@@ -1,3 +1,8 @@
+let sum = 0
+let total = document.getElementById('total')
+total.innerText = `$${sum}`
+
+
 function handleSubmit(event) {
   console.log("inside of submit()");
   event.preventDefault();
@@ -22,6 +27,9 @@ function handleSubmit(event) {
     <td>${Number(yearSalary)}</td>
     <td class='delete'><button onClick='runDelete(event)'>❌</button></td>
   </tr>`
+
+  sum += Number(yearSalary)
+  total.innerText = `$${sum}`
 }
 
 function runDelete(event){
