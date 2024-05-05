@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.cssd">
   <script defer src="./script.js"></script>
   <title>Salary Calculator</title>
 </head>
@@ -12,6 +12,29 @@
   </header>
   <main>
     <h2>Add Employee</h2>
+    <form>
+      <input 
+      id="firstName" 
+      placeholder="First Name" 
+      type="text">
+      <input 
+      id="lastName" 
+      placeholder="Last Name" 
+      type="text">
+      <input 
+      id="idNumber" 
+      placeholder="ID Number" 
+      type="text">
+      <input 
+      id="jobTitle" 
+      placeholder="Job Title" 
+      type="text">
+      <input 
+      id="yearSalary" 
+      placeholder="Annual Salary" 
+      type="text">
+      <button onClick="handleSubmit(event)">Submit</button>
+    </form>
     <h2>Employees</h2>
   </main>
   <footer>
