@@ -47,11 +47,12 @@ function handleSubmit(event) {
       console.log(yearSalary);
     }
   }
-  for (let i = 0; i < yearSalary.length; i++){
-    if (yearSalary[i] === ','){
-        console.log(yearSalary[i])
-        yearSalary = yearSalary.split(',').join('')
-        console.log(yearSalary)
+  //removes any , from input of annualSalary to allow Number() to work
+  for (let i = 0; i < yearSalary.length; i++) {
+    if (yearSalary[i] === ",") {
+      console.log(yearSalary[i]);
+      yearSalary = yearSalary.split(",").join("");
+      console.log(yearSalary);
     }
   }
   //Place values into table
@@ -65,7 +66,7 @@ function handleSubmit(event) {
     <td class='delete'><button onClick='runDelete(event)'>❌</button></td>
   </tr>`;
   //adjusts the monthly salary budget counter
-  totalSalary += (Number(yearSalary) / 12);
+  totalSalary += Number(yearSalary) / 12;
   output.innerHTML = `$` + totalSalary.toFixed(2);
   //clears fields
   allInputs.forEach((singleInput) => (singleInput.value = ""));
@@ -89,7 +90,7 @@ function runDelete(event) {
   // declares text value of node to variable
   let removedSal = targSal.innerText;
   // variable used to decrease monthly budget counter
-  totalSalary -= (Number(removedSal) / 12);
+  totalSalary -= Number(removedSal) / 12;
   output.innerHTML = `$${totalSalary.toFixed(2)}`;
   //removes the employee from table
   toDelete.remove();
