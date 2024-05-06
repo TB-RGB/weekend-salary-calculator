@@ -47,6 +47,13 @@ function handleSubmit(event) {
       console.log(yearSalary);
     }
   }
+  for (let i = 0; i < yearSalary.length; i++){
+    if (yearSalary[i] === ','){
+        console.log(yearSalary[i])
+        yearSalary = yearSalary.split(',').join('')
+        console.log(yearSalary)
+    }
+  }
   //Place values into table
   let table = document.getElementById("tBody");
   table.innerHTML += `
